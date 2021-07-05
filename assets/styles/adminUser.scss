@@ -1,0 +1,47 @@
+@import 'variables';
+body {
+    background-color: $light;
+
+    h1 {
+        color: $dark;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+        margin-top: 10vh;
+    }
+
+    .back-button{ 
+        font-size: 5vh;
+        display: flex;
+        span{
+            font-size: 1.5vh;
+            align-self: center;
+        }
+    }
+
+    table {
+        button {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+        }
+
+        .link-logo {
+            font-size: 20px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        img {
+            height: 100px;
+        }
+        
+        .view {
+            color: rgba(79, 79, 167, 0.685);
+        }
+
+        .delete {
+            color: red;
+        }
+    }
+}

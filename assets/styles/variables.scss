@@ -3,10 +3,26 @@
     src: url('../fonts/Macan-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Macan Black';
+    src: url('../fonts/Macan-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Domaine';
+    src: url('../fonts/DomaineDisplayApp-MediumItalic.ttf');
+}
+
 $primary: #1dbf73;
-$warning: #d0e500;
+$primary-light: #d0f7e6;
+$secondary: #00732e;
+$warning: #687200;
 $light: #e4e4e4;
-$dark: #222222;
+$dark: #3b3b3b;
+$orange: #ffe0d4;
+$blue: rgb(200, 249, 255);
 $white: #f1f1f1;
 
 $font-p: 'Macan Regular';
+$font-s: 'Domaine';
+$title: 'Macan Black';

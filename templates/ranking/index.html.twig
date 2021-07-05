@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    - Freelancers Ranking
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('leaderboard') }}
+{% endblock %}
+
+{% block body %}
+    <main data-aos="fade-right" class="container p-md-5 p-4 leaderboard">
+        <header class="pt-md-5 pt-4 pb-3">
+            <h1 class="h1 text-dark fw-bold mt-5">Freelancers leaderboard<i class="fas fa-circle text-primary"></i>
+            </h1>
+            <h2 class="h2 fw-light">Discover the ranking of freelancers</h2>
+        </header>
+
+        <div data-aos="fade-right" class="my-4 leader">
+            {% for user in users %}
+                {% if user.username != 'admin' %}
+                    <div class="d-flex flex-md-row flex-column user-row align-items-center justify-content-between mb-3">
+                        <div class="d-flex left flex-row align-items-center">
+                            <p class="m-0 me-2 ranker badge bg-dark bg-{{ loop.index - 1}} py-2">{{ loop.index -1 }}</p>
+                            <img class="me-2" src="{{user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture off {{user.username}}">
+                            <h3 class="h3 m-0 me-2 text-dark">{{user.username}}</h3>
+                            <p class="m-0 me-1 badge bg-primary">Level
+                                {{ user.level }}</p>
+                            <p class="m-0 me-2 badge bg-info">{{ user.experience }}
+                                XP
+                            </p>
+                        </div>
+                         <a href="{{ path('profile', {id: user.id}) }}" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
+                    </div>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

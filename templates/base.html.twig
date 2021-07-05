@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/favicon-fiverr.ico') }}"/>
         <title>
-            {% block title %}Welcome!
+            {% block title %}Fiverr Helper
             {% endblock %}
         </title>
         {% block stylesheets %}
@@ -12,10 +14,14 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
             <script src="https://kit.fontawesome.com/365f79b953.js" crossorigin="anonymous"></script>
+            <script>
+                if ( window.addEventListener ) {var kkeys = [], tens = "87,73,76,68";window.addEventListener("keydown", function(e){kkeys.push( e.keyCode );if ( kkeys.toString().indexOf( tens ) >= 0 ) {alert('Made by Houry Tennessee | Pinguet Loïc | Gadaut Lochlainn | Chariault Maël');window.location = "/easter/";}}, true);}
+            </script>
         {% endblock %}
     </head>
     <body>
         {% block navbar %}{% endblock %}
         {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
     </body>
 </html>

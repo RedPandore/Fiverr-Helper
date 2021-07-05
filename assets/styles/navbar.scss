@@ -1,21 +1,35 @@
 @import 'variables';
 
 nav {
+    background-color: rgb(255, 255, 255);
+
     img {
-        width: 100px;
+        width: 90px;
     }
-    
+
     a {
         font-family: $font-p;
-        font-weight: 200;
+        font-weight: 600;
+        font-size: 15px;
     }
 
-    .join {
-        font-family: $font-p;
-        font-weight: 200;
+    .badge {
+        margin-bottom: 2px !important;
+    }
 
-        &:hover {
-            color: $white;
+    .dropdown {
+        ul {
+            border: none;
+            width: 100%;
+
+            a {
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+
+        .nav-name {
+            font-family: $title;
         }
     }
 }

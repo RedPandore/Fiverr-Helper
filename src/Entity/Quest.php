@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\QuestRepository;
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +39,21 @@ class Quest
      * @ORM\Column(type="integer")
      */
     private $minimumLevel;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="finishedQuest")
+     */
+    private $users;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $goal;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +104,45 @@ class Quest
     public function setMinimumLevel(int $minimumLevel): self
     {
         $this->minimumLevel = $minimumLevel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFinishedQuest($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFinishedQuest($this);
+        }
+
+        return $this;
+    }
+
+    public function getGoal(): ?int
+    {
+        return $this->goal;
+    }
+
+    public function setGoal(int $goal): self
+    {
+        $this->goal = $goal;
 
         return $this;
     }
